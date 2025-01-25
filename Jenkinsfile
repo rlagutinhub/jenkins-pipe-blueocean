@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  tool(name: 'M3', type: 'maven')
   stages {
     stage('source') {
       steps {
@@ -9,11 +10,9 @@ pipeline {
 
     stage('build') {
       steps {
-        tool(name: 'M3', type: 'maven')
         sh 'mvn -Dmaven.test.failure.ignore=true clean package'
       }
     }
-
     stage('post') {
       steps {
         junit '**/target/surefire-reports/TEST-*.xml'
