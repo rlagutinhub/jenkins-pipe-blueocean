@@ -1,1 +1,1 @@
-# jenkins-pipe-blueocean 1
+# jenkins-pipe-blueocean
